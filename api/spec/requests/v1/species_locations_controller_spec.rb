@@ -11,18 +11,18 @@ describe V1::SpeciesLocationsController, type: :request do
   end
 
   describe "#find_locations" do
-    let(:request) { -> { post "/v1/species_locations/find_locations", params: { scientific_name_id: params }}}
+    let(:request) { -> { post "/v1/species_locations/find_locations", params: { scientific_name: params }}}
 
-    context "with incorrect scientific name ID" do
-      let(:params) { 3 }
+    context "with incorrect scientific name" do
+      let(:params) { "unknown name" }
 
       it "returns 404" do
         expect(@response).to have_http_status(:not_found)
       end
     end
 
-    context "with scientific name ID with multiple locations" do
-      let(:params) { 2 }
+    context "with scientific name with multiple locations" do
+      let(:params) { "name2" }
 
       it "returns an array with 2 records" do
         expect(@response).to have_http_status(:ok)
@@ -34,7 +34,7 @@ describe V1::SpeciesLocationsController, type: :request do
     describe "#find_species" do
     let(:request) { -> { post "/v1/species_locations/find_species", params: { locality: params }}}
 
-    context "with incorrect scientific name ID" do
+    context "with incorrect locality" do
       let(:params) { "unknown place" }
 
       it "returns 404" do
@@ -42,7 +42,7 @@ describe V1::SpeciesLocationsController, type: :request do
       end
     end
 
-    context "with scientific name ID with a location" do
+    context "with locality with a species" do
       let(:params) { "place2" }
 
       it "returns an array with 1 record" do

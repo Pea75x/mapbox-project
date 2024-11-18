@@ -11,7 +11,7 @@ module V1
     end
 
     def find_locations
-      @species_locations = SpeciesLocation.where(scientific_name_id: params[:scientific_name_id])
+      @species_locations = SpeciesLocation.where(scientific_name: params[:scientific_name])
 
       if @species_locations.present?
         render json: @species_locations, status: :ok

@@ -1,4 +1,4 @@
 class SpeciesLocation < ApplicationRecord
   validates :locality, presence: true
-  validates :scientific_name_id, presence: true, uniqueness: { scope: :locality }
+  validates :scientific_name, presence: true, uniqueness: { scope: :locality }
 end
