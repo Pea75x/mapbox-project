@@ -73,3 +73,5 @@ gem 'pg', '~> 1.2'
 # gem 'closure_tree', '~> 7.4.0'
 
 # gem 'aws-sdk-s3', '~> 1.114'
+
+gem "pundit", "~> 2.4"
