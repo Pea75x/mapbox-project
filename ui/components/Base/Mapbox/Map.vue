@@ -58,6 +58,26 @@ export default {
         }
       })
     })
+
+    this.map.on('click', 'arcGIS-layer', (e) => {
+      this.map.flyTo({
+        center: e.features[0].geometry.coordinates,
+        zoom: 10
+      })
+
+      const data = e.features[0].properties
+
+      const popupContent = `
+        <div class="popup-content">
+          <strong>Species Name:</strong> ${data.scientificName || 'N/A'}<br />
+          <strong>Genus:</strong> ${data.genus || 'N/A'}<br />
+          <strong>Family:</strong> ${data.family || 'N/A'}<br />
+          <strong>Location:</strong> ${data.locality || 'N/A'}<br />
+          <strong>Scientific Name Authorship:</strong> ${data.scientificNameAuthorship || 'N/A'}<br />
+        </div>
+      `
+      new Mapbox.Popup({ offset: 25 }).setHTML(popupContent).setLngLat(e.features[0].geometry.coordinates).addTo(this.map)
+    })
   }
 }
 </script>
