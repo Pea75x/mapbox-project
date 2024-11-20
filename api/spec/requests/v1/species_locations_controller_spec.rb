@@ -10,8 +10,8 @@ describe V1::SpeciesLocationsController, type: :request do
     request.call
   end
 
-  describe "#find_locations" do
-    let(:request) { -> { post "/v1/species_locations/find_locations", params: { scientific_name: params }}}
+  describe "#search_scientific_name" do
+    let(:request) { -> { post "/v1/species_locations/search_scientific_name", params: { scientific_name: params }}}
 
     context "with incorrect scientific name" do
       let(:params) { "unknown name" }
@@ -31,8 +31,8 @@ describe V1::SpeciesLocationsController, type: :request do
     end
   end
 
-    describe "#find_species" do
-    let(:request) { -> { post "/v1/species_locations/find_species", params: { locality: params }}}
+    describe "#search_locality" do
+    let(:request) { -> { post "/v1/species_locations/search_locality", params: { locality: params }}}
 
     context "with incorrect locality" do
       let(:params) { "unknown place" }
