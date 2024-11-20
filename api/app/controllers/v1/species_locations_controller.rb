@@ -1,6 +1,6 @@
 module V1
   class SpeciesLocationsController < ApplicationController
-    def find_species
+    def search_locality
       @species_locations = SpeciesLocation.where(locality: params[:locality])
 
       if @species_locations.present?
@@ -10,7 +10,7 @@ module V1
       end
     end
 
-    def find_locations
+    def search_scientific_name
       @species_locations = SpeciesLocation.where(scientific_name: params[:scientific_name])
 
       if @species_locations.present?

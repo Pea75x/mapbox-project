@@ -1,7 +1,8 @@
 <template>
   <TModal
     :value="show"
-    @input="onInput">
+    @input="onInput"
+  >
     <template #header>
       <slot name="header" />
     </template>

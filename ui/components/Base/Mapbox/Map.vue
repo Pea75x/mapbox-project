@@ -40,7 +40,6 @@ export default {
       searchName: '',
       searchTitle: '',
       searchData: [],
-      message: 'Species in this location',
       showModal: false
     }
   },
@@ -207,7 +206,7 @@ export default {
 
         popupInstance.$on('item-clicked', (item) => { item.onclick && item.onclick() })
       } else {
-        console.error('NO')
+        console.error('Error fetching species or locations')
       }
     })
   }

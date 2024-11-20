@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   namespace :v1 do
     resources :species_locations, only: [] do
       collection do
-        post :find_species
-        post :find_locations
+        post :search_locality
+        post :search_scientific_name
       end
     end
   end
