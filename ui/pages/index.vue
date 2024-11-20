@@ -14,7 +14,7 @@ export default {
   name: 'PagesIndex',
 
   async asyncData ({ store, $axios }) {
-    // fetch information from the api
+    // Attempted to fetch information from the api but fetched from Map instead
   }
 }
 </script>
